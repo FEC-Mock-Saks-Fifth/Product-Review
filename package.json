@@ -1,11 +1,12 @@
 {
   "name": "ProductReviews",
   "version": "1.0.0",
-  "description": "",
+  "description": "> Project description",
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "start": "nodemon server/index.js"
+    "start": "nodemon server/start.js",
+    "test": "jest --watch"
   },
   "author": "Beth Johnson",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "babel-plugin-styled-components": "^1.10.6",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.23.0",
+    "jest": "^24.9.0",
     "webpack": "^2.7.0"
   },
   "dependencies": {
@@ -36,9 +38,20 @@
     "react-dom": "^16.8.6",
     "react-radio-buttons": "^1.2.2",
     "react-star-rating-component": "^1.4.1",
+    "react-testing-library": "^8.0.1",
     "react-validation": "^3.0.7",
     "simple-react-validator": "^1.3.2",
     "sqlite3": "^4.0.6",
-    "styled-components": "^4.4.1"
-  }
+    "styled-components": "^4.4.1",
+    "supertest": "^4.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FEC-Mock-Saks-Fifth/Product-Review.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/FEC-Mock-Saks-Fifth/Product-Review/issues"
+  },
+  "homepage": "https://github.com/FEC-Mock-Saks-Fifth/Product-Review#readme"
 }
