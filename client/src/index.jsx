@@ -1011,83 +1011,99 @@ class App extends React.Component {
            <br />
            <Br />
     <Break></Break>
-           <br />
-           <Br />
-           <Br />
-           <Shiv>
-            <Search>
-              <X></X>
-              <Put placeholder="Search Reviews and questions"></Put>
-            </Search>
-           </Shiv>
-    {final.map((rev, i) => {
-      return (
-        <Dal key={i}>
 
-    <Stars>
-      <br />
-      <br />
-      <Br />
-    ★ ★ ★ ★ ★ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {rev.revTitle } &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-    </Stars>
-       <br />
-       <br />
-       <Dates>{rev.dateAdded}</Dates>
-       <br />
-       
-      <Dates>{rev.city + ", " + rev.states + ", " + rev.country}</Dates>
-      <br />
-     
-    <Dates>Gender: {rev.gender}</Dates>
     <br />
-    
-    <Dates>Age: {rev.age}</Dates>
+           <br />
+           <br />
+<Lol>
+           <Take>
+            <Searcher>
+              <X></X>
+              <Down></Down>
+              <Put placeholder="Search Reviews and questions"></Put>
+            </Searcher>
+           </Take>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-       <Ps><b>My Personal Style: </b>{rev.ps}
-       <Br />
-       <Br />
-       <b>
-       Would you recommend this<br />
-       product to a friend?:
-       </b>
-       <Br />
-       {rev.reccomend}
-       <br />
-       <Br />
-       <Br />
-       <Fap>
-       <Hit>
-         <b>
-         Fit
-         </b>
-         </Hit>
-     <Kiv>
-       <Dot></Dot>
-     </Kiv>
-     <Hit>Too Small &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Too Big</Hit>
-  
-      </Fap>
-     <br />
-       <Break2></Break2>
- 
-       </Ps>
-       <Br />
-       <Desc> &ensp; &ensp;&ensp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&ensp;
-       {rev.rev_desc}
-       <br />
-       <Br />
-       <Br />
-       <ul>
-         <Help>
-           Was this review helpful? <A onClick={() => this.handleYes(rev)}>Yes ({rev.yes})</A>&ensp;&ensp;<A onClick={() => this.handleNo(rev)}>No ({rev.nah})</A>
-           &nbsp;&nbsp;&nbsp; <A >Flag as Inappropriate</A>
-         </Help>
-       </ul>
-       {/* <br /> */}
-       </Desc>
+           <Relect>
+              <Woption> &nbsp;&nbsp; Sort by Most Helpful</Woption>
+              <Woption> &nbsp;&nbsp; Sort by Most Recent Review </Woption>
+              <Woption> &nbsp;&nbsp; Sort Highest to Lowest</Woption>
+              <Woption> &nbsp;&nbsp; Sort Lowest to Highest</Woption>
+           </Relect>
+</Lol>
 
-       </Dal>
+
+           {final.map((rev, i) => {
+             return (
+               <Dal key={i}>
+                 <br />
+           <Stars>
+           <br /><br />
+             <br /><br />
+             
+           ★ ★ ★ ★ ★ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {rev.revTitle } &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <br />
+     
+           </Stars>
+              <br />
+              <Br ></Br>
+              <br /> <br />
+              <Dates>{rev.dateAdded}</Dates>
+              <br />
+             
+             <Dates>{rev.city + ", " + rev.states + ", " + rev.country}</Dates>
+              <br />
+           <Dates>Gender: {rev.gender}</Dates>
+            <br />
+           <Dates>Age: {rev.age}</Dates>
+           <br />
+              <Ps><b>My Personal Style: </b>{rev.ps}
+              <Br />
+              <Br />
+              <b>
+              Would you recommend this<br />
+              product to a friend?:
+              </b>
+              <Br />
+              {rev.reccomend}
+              <br />
+              <Br />
+              <Br />
+              <Fap>
+              <Hit>
+                <b>
+                Fit
+                </b>
+                </Hit>
+            <Kiv>
+              <Dot></Dot>
+            </Kiv>
+            <Hit>Too Small &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Too Big</Hit>
+            <br />
+            <Br />
+          </Fap>
+            <Break2></Break2>
+            <br />
+            <br />
+              </Ps>
+              <Br />
+              <Desc> &ensp; &ensp;&ensp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&ensp;
+              {rev.rev_desc}
+              <br />
+              <Br />
+              <Br />
+              <ul>
+                <Help>
+                  Was this review helpful? <A onClick={() => this.handleYes(rev)}>Yes ({rev.yes})</A>&ensp;&ensp;<A onClick={() => this.handleNo(rev)}>No ({rev.nah})</A>
+                  &nbsp;&nbsp;&nbsp; <A >Flag as Inappropriate</A>
+                </Help>
+
+              </ul>
+              <br />
+              </Desc>
+
+              </Dal>
 
       )
     })}
