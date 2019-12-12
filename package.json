@@ -6,7 +6,8 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/start.js",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "seed": "node db/seed.js"
   },
   "author": "Beth Johnson",
   "license": "ISC",

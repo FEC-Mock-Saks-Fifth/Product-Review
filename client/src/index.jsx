@@ -834,7 +834,7 @@ width:19px;
 -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
 `
 const M = styled.b`
-margin:0px 0px 100px 0px;
+margin:0px 0px 10000px 0px;
 `
 class App extends React.Component {
   constructor(props){
@@ -879,7 +879,7 @@ class App extends React.Component {
   handleYes(rev){
     // console.log('u said yes to the dress')
     var newNum = (Number(rev.yes) + 1).toString()
-    axios.put(`/api/yes/${rev.id}`,{
+    axios.put(`/api1/yes/${rev.id}`,{
       yes: newNum
     })
     .then(this.getReviews())
@@ -888,7 +888,7 @@ class App extends React.Component {
   handleNo(rev){
     // console.log('u said yes to the dress')
     var newNum = (Number(rev.nah) + 1).toString()
-    axios.put(`/api/no/${rev.id}`,{
+    axios.put(`/api1/no/${rev.id}`,{
       nah: newNum
     })
     .then(this.getReviews())
@@ -897,7 +897,7 @@ class App extends React.Component {
 
   getReviews(){
     console.log('we got reviews')
-    axios.get('/api/reviews')
+    axios.get('/api1/reviews')
     .then((response) => this.setState({
       reviews: response.data
     }))
@@ -920,7 +920,7 @@ class App extends React.Component {
     }
 
     else {
-      axios.post('/api/writereview',{
+      axios.post('/api1/writereview',{
         date: this.state.date,
         rating: this.state.rating,
         ps: this.state.ps,
