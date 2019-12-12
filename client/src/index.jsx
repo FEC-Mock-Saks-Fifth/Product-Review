@@ -85,57 +85,14 @@ function StyledRadio(props) {
     />
   );
 }
-const Fit = styled.div`
-background-image:url("https://content.hbc.com/content/frontend/5-26-75/images/5ba05ad3127c4f12aee2ed6f30bcc458.png");
-background-position-x:-1604px;
-background-position-y:-1802px;
-background-size:943px 2050px;
-box-sizing:border-box;
-color:rgb(0, 0, 0);
-display:block;
-font-family:"Gotham Narrow SSm 7r", "Gotham Narrow SSm 5r", sans-serif;
-font-size:11px;
-font-weight:400;
-height:16px;
-line-height:18px;
-margin-left:79.1875px;
-outline-color:rgb(3, 108, 219);
-outline-style:solid;
-outline-width:1px;
-text-align:left;
-text-rendering:optimizelegibility;
-text-size-adjust:100%;
-visibility:visible;
-width:10px;
--webkit-font-smoothing:antialiased;
--webkit-tap-highlight-color:rgba(0, 0, 0, 0);
-`
+
 const Div = styled.div`
        padding-top: 50px;
        padding-right: 160px;
        padding-bottom: 50px;
        padding-left: 160px;
 `
-const Hr = styled.hr`
-       position: absolute;
-       height: 0;
-       width: 76.7%;
-       margin-right: 50px;
-       max-height: 0;
-       font-size: 1px;
-       border-top: 1px solid #aaaaaa;
-       border-bottom: 1px solid #ffffff;
-`
-const Gr = styled.hr`
-       position: absolute;
-       height: 0;
-       width: 1100;
-       margin-right: 50px;
-       max-height: 0;
-       font-size: 1px;
-       border-top: 1px solid #aaaaaa;
-       border-bottom: 1px solid #ffffff;
-`
+
 const Span = styled.span`
   position: absolute;
   display: inline-block;
@@ -292,14 +249,7 @@ width:141px;
     position: relative;
     color: #000;
   `
-  const G2 = styled.h3`
-    color: black;
-    padding-bottom: 100px;
-    font-weight: bolder;
-    font-size: 13px;
-    line-height: 18px;
 
-  `
   const Select = styled.select`
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -400,32 +350,16 @@ position: absolute;
 left: 0;
 padding-left: 169px;
 `
-const Cal = styled.div`
-box-sizing:border-box;
-color:rgb(119, 119, 119);
-display:block;
-font-family:"Gotham Narrow SSm 4r", "Gotham Narrow SSm 5r", sans-serif;
-font-size:12px;
-font-weight:400;
-height:18px;
-line-height:18px;
-text-align:left;
-text-rendering:optimizelegibility;
-text-size-adjust:100%;
-visibility:visible;
-width:198px;
--webkit-font-smoothing:antialiased;
--webkit-tap-highlight-color:rgba(0, 0, 0, 0);
-`
+
 const Dal = styled.div`
 font-family: Source Sans Pro, sans-serif;
 display: block;
 font-size: 13px;
 color: black;
 font-weight: 600;
-padding-top: 50px;
+padding-top: 0px;
 padding-right: 160px;
-padding-bottom: 50px;
+padding-bottom: 60px;
 padding-left: 160px;
 `
 const Desc = styled.div`
@@ -443,27 +377,7 @@ width:655.359px;
 -webkit-font-smoothing:antialiased;
 -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
 `
-const Jiv = styled.div`
-box-sizing:border-box;
-clear:both;
-color:rgb(0, 0, 0);
-display:block;
-font-family:"Gotham Narrow SSm 4r", "Gotham Narrow SSm 5r", sans-serif;
-font-size:12px;
-font-weight:400;
-height:0px;
-line-height:18px;
-outline-color:rgb(3, 108, 219);
-outline-style:solid;
-outline-width:1px;
-text-align:left;
-text-rendering:optimizelegibility;
-text-size-adjust:100%;
-visibility:visible;
-width:1024px;
--webkit-font-smoothing:antialiased;
--webkit-tap-highlight-color:rgba(0, 0, 0, 0);
-`
+
 const Help = styled.li`
 position: absolute;
 display:block;
@@ -531,18 +445,15 @@ width:10px;
 -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
 `
 const Wrap = styled.div`
-top:55;
-right:900
+position:absolute:
+top:0;
+left:100;
 color:rgb(0, 0, 0)
 font-family:"Gotham Narrow SSm 4r", "Gotham Narrow SSm 5r", sans-serif;
 font-size:12px;
 font-weight:500;
-overflow-x:auto;
-overflow-y:auto;
-position:absolute;
-text-rendering:optimizelegibility;
-text-size-adjust:100%;
-visibility:visible;
+height:17px;
+width:100px;
 `
 const Fap = styled.div`
 color:rgb(0, 0, 0)
@@ -573,37 +484,16 @@ width:165px;
 -webkit-font-smoothing:antialiased;
 -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
 `
-const Big = styled.div`
-box-sizing:border-box;
-color:rgb(119, 119, 119);
-display:block;
-font-family:"Gotham Narrow SSm 7r", "Gotham Narrow SSm 5r", sans-serif;
-font-size:12px;
-font-weight:400;
-height:18px;
-line-height:18px;
-text-align:right;
-text-rendering:optimizelegibility;
-text-size-adjust:100%;
-visibility:visible;
-width:165px;
--webkit-font-smoothing:antialiased;
--webkit-tap-highlight-color:rgba(0, 0, 0, 0);
-`
 const He = styled.b`
 position:absolute;
 top:40;
 left:168.7;
 `
-const We = styled.b`
-position:absolute;
-top:0;
-left:168.7;
-`
+
 const She = styled.div`
-position:absolute;
+position:relative;
 font-size:15px
-top:0;
+top:1;
 left:168.7;
 `
 const Lasr = styled.span`
@@ -638,7 +528,8 @@ font-size:12px;
 font-weight:400;
 height:36px;
 line-height:18px;
-text-align:left;
+position:relative;
+
 text-rendering:optimizelegibility;
 text-size-adjust:100%;
 visibility:visible;
@@ -650,18 +541,18 @@ const Search = styled.div`
 background-image:url("https://content.hbc.com/content/frontend/5-26-75/images/5ba05ad3127c4f12aee2ed6f30bcc458.png");
 background-position-x:-329px;
 background-position-y:-263px;
-/* box-sizing:border-box; */
+box-sizing:border-box; 
 color:rgb(0, 0, 0);
 display:block;
 float:left;
 font-family:"Gotham Narrow SSm 4r", "Gotham Narrow SSm 5r", sans-serif;
 font-size:12px;
+
 font-weight:400;
 height:19px;
 line-height:18px;
-margin-left:7px;
-margin-top:7px;
-text-align:left;
+position:absolute;
+
 text-rendering:optimizelegibility;
 text-size-adjust:100%;
 visibility:visible;
@@ -674,9 +565,6 @@ background-image:url("https://content.hbc.com/content/frontend/5-26-75/images/5b
 background-position-x:-330px;
 background-position-y:-197px;
 box-sizing:border-box;
-position:absolute;
-top:147;
-left:462;
 color:rgb(119, 119, 119);
 cursor:pointer;
 display:block;
@@ -686,9 +574,8 @@ font-size:12px;
 font-weight:400;
 height:20px;
 line-height:18px;
-margin-right:6px;
-margin-top:8px;
-text-align:left;
+margin-right:-275px
+text-align:right;
 text-decoration-color:rgb(119, 119, 119);
 text-decoration-line:none;
 text-decoration-style:solid;
@@ -697,7 +584,32 @@ text-size-adjust:100%;
 transition-duration:0.2s;
 transition-property:color, opacity;
 transition-timing-function:ease;
-visibility:visible;
+width:17px;
+z-index:auto;
+-webkit-font-smoothing:antialiased;
+-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+`
+const Down = styled.a`
+background-image:url("https://backgrounddownload.com/wp-content/uploads/2018/09/down-arrow-icon-transparent-background-5.png");
+box-sizing:border-box;
+cursor:pointer;
+display:block;
+float:right;
+font-family:"Gotham Narrow SSm 4r", "Gotham Narrow SSm 5r", sans-serif;
+font-size:12px;
+font-weight:400;
+height:20px;
+line-height:18px;
+margin-right:-575px
+text-align:right;
+text-decoration-color:rgb(119, 119, 119);
+text-decoration-line:none;
+text-decoration-style:solid;
+text-rendering:optimizelegibility;
+text-size-adjust:100%;
+transition-duration:0.2s;
+transition-property:color, opacity;
+transition-timing-function:ease;
 width:17px;
 z-index:auto;
 -webkit-font-smoothing:antialiased;
@@ -705,9 +617,6 @@ z-index:auto;
 `
 const Put = styled.input`
 border: none;
-position: absolute;
-top:157;
-left:235;
 cursor:text;
 display:block;
 font-family:"Gotham Narrow SSm 4r", "Gotham Narrow SSm 5r", sans-serif;
@@ -721,6 +630,7 @@ font-variant-numeric:normal;
 font-weight:400;
 /* height:34px; */
 letter-spacing:normal;
+margin-left:70px;
 text-align:start;
 text-decoration-color:rgb(0, 0, 0);
 text-decoration-line:none;
@@ -733,48 +643,20 @@ text-transform:capitalize;
 visibility:visible;
 width:170.797px;
 `
-const Ar = styled.a`
-background-image:url("https://image.flaticon.com/icons/svg/60/60995.svg");
-background-position-x:-330px;
-background-position-y:-197px;
-box-sizing:border-box;
-color:rgb(119, 119, 119);
-cursor:pointer;
-display:block;
-float:right;
-font-family:"Gotham Narrow SSm 4r", "Gotham Narrow SSm 5r", sans-serif;
-font-size:12px;
-font-weight:400;
-height:10px;
-line-height:18px;
-margin-right:6px;
-margin-top:8px;
-text-align:left;
-text-decoration-color:rgb(119, 119, 119);
-text-decoration-line:none;
-text-decoration-style:solid;
-text-rendering:optimizelegibility;
-text-size-adjust:100%;
-transition-duration:0.2s;
-transition-property:color, opacity;
-transition-timing-function:ease;
-visibility:visible;
-width:17px;
-z-index:auto;
--webkit-font-smoothing:antialiased;
--webkit-tap-highlight-color:rgba(0, 0, 0, 0);
-`
+
 const Lol = styled.div`
     width: 100%;
-    height: 39px;
-    overflow: hidden;
+    height: 30px;
     background: no-repeat #ffffff;
     display: flex;
     flex-direction: row;
-    background-position: 620;
+    background-position: 60;
     background-image: url("https://content.hbc.com/content/frontend/5-26-75/images/2846d9d7bac20583cad4e305608cb88f.png");
 `
 const Relect = styled.select`
+background-image: url("https://content.hbc.com/content/frontend/5-26-75/images/2846d9d7bac20583cad4e305608cb88f.png");
+background-position-x:96%;
+background-position-y:55%;
     -webkit-appearance:none;
     border-radius: 0;
     -webkit-border-radius: 0;
@@ -809,7 +691,7 @@ border-top-style:solid;
 border-top-width:1px;
 box-sizing:border-box;
 color:rgb(0, 0, 0);
-    /* position: relative; */
+position: relative; 
 `
 const Woption = styled.option`
 box-sizing:content-box;
@@ -851,7 +733,106 @@ writing-mode:horizontal-tb;
 -webkit-rtl-ordering:logical;
 -webkit-tap-highlight-color:rgba(0, 0, 0, 0); */
 `
-
+const Break = styled.div`
+box-sizing:border-box;
+clear:both;
+color:#808080;
+display:block;
+font-family:"Gotham Narrow SSm 4r", "Gotham Narrow SSm 5r", sans-serif;
+font-size:12px;
+font-weight:400;
+height:0px;
+line-height:18px;
+outline-color:#d3d3d3;
+outline-style:solid;
+outline-width:1px;
+text-align:left;
+text-rendering:optimizelegibility;
+text-size-adjust:100%;
+visibility:visible;
+width:100%;
+-webkit-font-smoothing:antialiased;
+-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+`
+const Break2 = styled.div`
+box-sizing:border-box;
+clear:both;
+color:#808080;
+display:block;
+font-family:"Gotham Narrow SSm 4r", "Gotham Narrow SSm 5r", sans-serif;
+font-size:12px;
+font-weight:400;
+height:0px;
+line-height:18px;
+outline-color:#d3d3d3;
+outline-style:solid;
+outline-width:1px;
+text-align:left;
+text-rendering:optimizelegibility;
+text-size-adjust:300%;
+visibility:visible;
+width:1087px;
+-webkit-font-smoothing:antialiased;
+-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+`
+const Take = styled.div`
+background-color:rgb(255, 255, 255);
+border-bottom-color:rgb(204, 204, 204);
+border-bottom-style:solid;
+border-bottom-width:1px;
+border-image-outset:0px;
+border-image-repeat:stretch;
+border-image-slice:100%;
+border-image-source:none;
+border-image-width:1;
+border-left-color:rgb(204, 204, 204);
+border-left-style:solid;
+border-left-width:1px;
+border-right-color:rgb(204, 204, 204);
+border-right-style:solid;
+border-right-width:1px;
+border-top-color:rgb(204, 204, 204);
+border-top-style:solid;
+border-top-width:1px;
+box-sizing:border-box;
+color:rgb(0, 0, 0);
+display:block;
+font-family:"Gotham Narrow SSm 4r", "Gotham Narrow SSm 5r", sans-serif;
+font-size:12px;
+font-weight:400;
+height:36px;
+line-height:18px;
+text-align:left;
+text-rendering:optimizelegibility;
+text-size-adjust:100%;
+visibility:visible;
+width:318px;
+-webkit-font-smoothing:antialiased;
+-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+`
+const Searcher = styled.div`
+background-image:url(https://content.hbc.com/content/frontend/5-26-75/images/5ba05ad3127c4f12aee2ed6f30bcc458.png);
+background-position-x:-329px;
+background-position-y:-263px;
+box-sizing:border-box;
+color:rgb(0, 0, 0);
+display:block;
+float:left;
+font-family:"Gotham Narrow SSm 4r", "Gotham Narrow SSm 5r", sans-serif;
+font-size:12px;
+font-weight:400;
+height:19px;
+line-height:18px;
+margin-left:7px;
+margin-top:7px;
+text-align:left;
+text-rendering:optimizelegibility;
+text-size-adjust:100%;
+visibility:visible;
+width:19px;
+-webkit-font-smoothing:antialiased;
+-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+`
 class App extends React.Component {
   constructor(props){
     super(props)
@@ -1009,23 +990,30 @@ class App extends React.Component {
 
      return (
       <Div>
-        <We>★ ★ ★ ★ ★<Lasr> 5.0/5.0</Lasr></We>
-        <He>{this.state.num+ "  "} Reviews</He>
-      <Button onClick={this.handleClick}></Button>
-     <Wrap>
-       <Hit>
-         <b>
-         Fit
-         </b>
-         </Hit>
-     <Kiv>
-       <Dot></Dot>
-     </Kiv>
-     <Hit>Too Small &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Too Big</Hit>
-   </Wrap>
-    <Br />
-    <br />
+        <She> ★ ★ ★ ★ ★<Lasr> 5.0 / 5.0</Lasr>    </She>
+              <Br />
+              <He>{this.state.num+ "  "} Reviews</He>
+            <Wrap style={{paddingLeft:180}}>
+              <Hit>
+                <b>
+                Fit
+                </b>
+                </Hit>
+            <Kiv>
+              <Dot></Dot>
+            </Kiv>
+            <Hit>Too Small &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Too Big</Hit>
+            <br />
+            </Wrap>
+          
+             <Button onClick={this.handleClick}></Button>
            <br />
+           <br />
+           <Br />
+    <Break></Break>
+           <br />
+           <Br />
+           <Br />
            <Shiv>
             <Search>
               <X></X>
@@ -1040,23 +1028,22 @@ class App extends React.Component {
       <br />
       <br />
       <Br />
-    ★ ★ ★ ★ ★ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {rev.revTitle } &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    ★ ★ ★ ★ ★ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {rev.revTitle } &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
     </Stars>
        <br />
        <br />
        <Dates>{rev.dateAdded}</Dates>
        <br />
-       <Br />
+       
       <Dates>{rev.city + ", " + rev.states + ", " + rev.country}</Dates>
       <br />
-      <Br />
+     
     <Dates>Gender: {rev.gender}</Dates>
     <br />
-    <Br />
+    
     <Dates>Age: {rev.age}</Dates>
-       <Br />
-       <Br />
+
        <Ps><b>My Personal Style: </b>{rev.ps}
        <Br />
        <Br />
@@ -1079,12 +1066,11 @@ class App extends React.Component {
        <Dot></Dot>
      </Kiv>
      <Hit>Too Small &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Too Big</Hit>
+  
+      </Fap>
      <br />
-     <Br />
-
-   </Fap>
-       <Gr />
-
+       <Break2></Break2>
+ 
        </Ps>
        <Br />
        <Desc> &ensp; &ensp;&ensp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&ensp;
@@ -1118,11 +1104,11 @@ class App extends React.Component {
           </Value>
           <Br />
           <Br />
-          My Overall Rating:
+         <b > My Overall Rating:</b>
 
           <StarRatingComponent
           name="rate1"
-          emptyStarColor={'808080'}
+          emptyStarColor={'#808080'}
           starColor={'#000000'}
           starCount={5}
           value={rating}
@@ -1140,11 +1126,12 @@ class App extends React.Component {
             <option value="Relaxed">Relaxed</option>
             <option value="Sporty">Sporty</option>
           </Select>
-          <br/><br/>
-          <ThemeProvider theme={theme}>
+          <br/>
+          <ThemeProvider style={{paddingTop:100}} theme={theme}>
           <RadioGroup aria-label="start" name="start" value={this.state.width} onChange={this.handleRadio1} row>
           <Br/>
-          My Typical Width:
+        
+         <b style={{paddingTop:6.6}}> My Typical Width:</b>
           <FormControlLabel
           value="Narrow"
           control={<StyledRadio />}
@@ -1167,7 +1154,7 @@ class App extends React.Component {
            </RadioGroup>
           <RadioGroup aria-label="start" name="start" value={this.state.reccomend} onChange={this.handleRadio} row>
           <Br/>
-          Would you reccomend this product to a friend?:
+          <b style={{paddingTop:6.88}}>Would you reccomend this product to a friend?:</b>
           <FormControlLabel
           value="Yes"
           control={<StyledRadio />}
@@ -1185,8 +1172,8 @@ class App extends React.Component {
            <Dr/>
 
            <RadioGroup  aria-label="end" name="end" value={this.state.fit} onChange={this.handleRadio2} row>
-          <Br/>
-          Fit: &ensp;
+          
+          <b style={{paddingTop:6}}>Fit:</b> &ensp;
           <FormControlLabel
 
           value="Too small"
@@ -1584,12 +1571,12 @@ class App extends React.Component {
 
     if(revs[0]){
         return (
+            
           <Div>
-
-              <She> ★ ★ ★ ★ ★<Lasr> 5.0 / 5.0</Lasr> </She>
+              <She> ★ ★ ★ ★ ★<Lasr> 5.0 / 5.0</Lasr>    </She>
+              <Br />
               <He>{this.state.num+ "  "} Reviews</He>
-             <Button onClick={this.handleClick}></Button>
-            <Wrap>
+            <Wrap style={{paddingLeft:180}}>
               <Hit>
                 <b>
                 Fit
@@ -1599,18 +1586,28 @@ class App extends React.Component {
               <Dot></Dot>
             </Kiv>
             <Hit>Too Small &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Too Big</Hit>
-          </Wrap>
+            <br />
+            </Wrap>
+          
+             <Button onClick={this.handleClick}></Button>
+           <br />
+           <br />
            <Br />
+           <Break></Break>
+
+           <br />
            <br />
            <br />
 <Lol>
-           <Shiv>
-            <Search>
+           <Take>
+            <Searcher>
               <X></X>
+              <Down></Down>
               <Put placeholder="Search Reviews and questions"></Put>
-            </Search>
-           </Shiv>
+            </Searcher>
+           </Take>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
            <Relect>
               <Woption> &nbsp;&nbsp; Sort by Most Helpful</Woption>
               <Woption> &nbsp;&nbsp; Sort by Most Recent Review </Woption>
@@ -1623,27 +1620,27 @@ class App extends React.Component {
            {final.map((rev, i) => {
              return (
                <Dal key={i}>
-
+                 <br />
            <Stars>
-             <br />
-             <br />
-           ★ ★ ★ ★ ★ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {rev.revTitle } &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
+           <br /><br />
+             <br /><br />
+             
+           ★ ★ ★ ★ ★ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {rev.revTitle } &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <br />
+     
            </Stars>
               <br />
-              <br />
+              <Br ></Br>
+              <br /> <br />
               <Dates>{rev.dateAdded}</Dates>
               <br />
-              <Br />
+             
              <Dates>{rev.city + ", " + rev.states + ", " + rev.country}</Dates>
-             <br />
-             <Br />
+              <br />
            <Dates>Gender: {rev.gender}</Dates>
-           <br />
-           <Br />
+            <br />
            <Dates>Age: {rev.age}</Dates>
-              <Br />
-              <Br />
+           <br />
               <Ps><b>My Personal Style: </b>{rev.ps}
               <Br />
               <Br />
@@ -1669,8 +1666,9 @@ class App extends React.Component {
             <br />
             <Br />
           </Fap>
-              <Gr />
-
+            <Break2></Break2>
+            <br />
+            <br />
               </Ps>
               <Br />
               <Desc> &ensp; &ensp;&ensp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&ensp;
@@ -1690,7 +1688,7 @@ class App extends React.Component {
 
               </Dal>
 
-             )
+           )
            })}
 
           </Div>
