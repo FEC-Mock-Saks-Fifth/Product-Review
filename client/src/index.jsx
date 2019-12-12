@@ -1572,7 +1572,7 @@ class App extends React.Component {
             </SmallSelect>
             <br />
             <br />
-        <SubmitButton onClick={this.handleSubmit}></SubmitButton>
+        <SubmitButton style={{marginLeft:470}} onClick={this.handleSubmit}></SubmitButton>
        </Val>
         </div>
        </ModalContent>
