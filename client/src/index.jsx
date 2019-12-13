@@ -209,9 +209,6 @@ width:141px;
    width:100%;
    height:100%;
    background-color: rgba(0,0,0,0);
-   position: absolute;
-   top: 0;
-   right: 0;
    display:flex;
    justify-content: center;
    align-items: center;
@@ -221,6 +218,7 @@ width:141px;
     width: 600px;
     max-height: calc(100vh - 210px);
     overflow-y: auto;
+    top:250%;
     background-color:white;
     border-radius: 4px;
     border-style: ridge;
@@ -864,7 +862,7 @@ class App extends React.Component {
     }
 
     else if (this.state.rev_desc.length < 10){
-      console.log(this.state.reviews[0].item_id)
+     
       this.setState({
         error: "Your review must be at least 10 characters in length."
       })
@@ -1082,8 +1080,9 @@ class App extends React.Component {
           </Value>
           <Br />
           <Br />
-         <M> My Overall Rating:</M>
-
+          
+    <div style={{display:"flex",alignItems:"center"}}>
+        <div> My Overall Rating:</div>
           <StarRatingComponent
           name="rate1"
           emptyStarColor={'#808080'}
@@ -1091,6 +1090,8 @@ class App extends React.Component {
           starCount={5}
           value={rating}
           onStarClick={this.onStarClick.bind(this)} />
+    </div>
+          
         <br/>
         <br />
           My Personal Style:<br/>
