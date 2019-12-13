@@ -2,8 +2,8 @@ const db = require('./index.js')
 
 const helpers = {
 
-  postReview: ({date,rating,ps,reccomend,fit,revTitle,rev_desc,country,city,states,gender,age,yes,nah},cb) => {
-    db.query(`INSERT INTO revs (dateAdded, rating, ps, reccomend, fit, revTitle, rev_desc, country, city, states,gender,age,yes,nah) VALUES ("${date}","${rating}","${ps}","${reccomend}","${fit}","${revTitle}","${rev_desc}","${country}","${city}","${states}","${gender}","${age}","${yes}","${nah}");
+  postReview: ({date,rating,ps,reccomend,fit,revTitle,rev_desc,country,city,states,gender,age,yes,nah, item_id},cb) => {
+    db.query(`INSERT INTO revs (dateAdded, rating, ps, reccomend, fit, revTitle, rev_desc, country, city, states,gender,age,yes,nah, item_id) VALUES ("${date}","${rating}","${ps}","${reccomend}","${fit}","${revTitle}","${rev_desc}","${country}","${city}","${states}","${gender}","${age}","${yes}","${nah}", "${item_id}");
     `,(err,result) => {
       if(err){
         console.log('error adding review')
@@ -14,8 +14,8 @@ const helpers = {
       }
     })
   },
-  getReviews: (cb) => {
-    db.query(`SELECT * FROM revs`, (err,result) => {
+  getReviews: ({data},cb) => {
+    db.query(`SELECT * FROM revs WHERE item_id = ${data}`, (err,result) => {
       if(err) cb(err)
       else cb(null,result)
     })

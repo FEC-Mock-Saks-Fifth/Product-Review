@@ -501,65 +501,7 @@ font-weight: 550;
 font-size:15px
 color:rgb(119, 119, 119);
 `
-const Shiv = styled.div`
-background-color:rgb(255, 255, 255);
-border-bottom-color:rgb(204, 204, 204);
-border-bottom-style:solid;
-border-bottom-width:3px;
-border-image-outset:0px;
-border-image-repeat:stretch;
-border-image-slice:100%;
-border-image-source:none;
-border-image-width:1;
-border-left-color:rgb(204, 204, 204);
-border-left-style:solid;
-border-left-width:1px;
-border-right-color:rgb(204, 204, 204);
-border-right-style:solid;
-border-right-width:1px;
-border-top-color:rgb(204, 204, 204);
-border-top-style:solid;
-border-top-width:1px;
-box-sizing:border-box;
-color:rgb(0, 0, 0);
-display:block;
-font-family:"Gotham Narrow SSm 4r", "Gotham Narrow SSm 5r", sans-serif;
-font-size:12px;
-font-weight:400;
-height:36px;
-line-height:18px;
-position:relative;
 
-text-rendering:optimizelegibility;
-text-size-adjust:100%;
-visibility:visible;
-width:318px;
--webkit-font-smoothing:antialiased;
--webkit-tap-highlight-color:rgba(0, 0, 0, 0);
-`
-const Search = styled.div`
-background-image:url("https://content.hbc.com/content/frontend/5-26-75/images/5ba05ad3127c4f12aee2ed6f30bcc458.png");
-background-position-x:-329px;
-background-position-y:-263px;
-box-sizing:border-box; 
-color:rgb(0, 0, 0);
-display:block;
-float:left;
-font-family:"Gotham Narrow SSm 4r", "Gotham Narrow SSm 5r", sans-serif;
-font-size:12px;
-
-font-weight:400;
-height:19px;
-line-height:18px;
-position:absolute;
-
-text-rendering:optimizelegibility;
-text-size-adjust:100%;
-visibility:visible;
-width:19px;
--webkit-font-smoothing:antialiased;
--webkit-tap-highlight-color:rgba(0, 0, 0, 0);
-`
 const X = styled.a`
 background-image:url("https://content.hbc.com/content/frontend/5-26-75/images/5ba05ad3127c4f12aee2ed6f30bcc458.png");
 background-position-x:-330px;
@@ -654,9 +596,8 @@ const Lol = styled.div`
     background-image: url("https://content.hbc.com/content/frontend/5-26-75/images/2846d9d7bac20583cad4e305608cb88f.png");
 `
 const Relect = styled.select`
-background-image: url("https://content.hbc.com/content/frontend/5-26-75/images/2846d9d7bac20583cad4e305608cb88f.png");
-background-position-x:96%;
-background-position-y:55%;
+background-image: url('https://content.hbc.com/content/frontend/5-26-75/images/2846d9d7bac20583cad4e305608cb88f.png'),
+linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
     -webkit-appearance:none;
     border-radius: 0;
     -webkit-border-radius: 0;
@@ -870,6 +811,7 @@ class App extends React.Component {
   this.handleRadio = this.handleRadio.bind(this)
   this.handleChange = this.handleChange.bind(this)
   this.handleClick = this.handleClick.bind(this)
+  this.handle = this.handle.bind(this)
   }
   handleFlag(){
     this.setState({
@@ -879,7 +821,7 @@ class App extends React.Component {
   handleYes(rev){
     // console.log('u said yes to the dress')
     var newNum = (Number(rev.yes) + 1).toString()
-    axios.put(`/api1/yes/${rev.id}`,{
+    axios.put(`/yes/${rev.id}`,{
       yes: newNum
     })
     .then(this.getReviews())
@@ -888,19 +830,29 @@ class App extends React.Component {
   handleNo(rev){
     // console.log('u said yes to the dress')
     var newNum = (Number(rev.nah) + 1).toString()
-    axios.put(`/api1/no/${rev.id}`,{
+    axios.put(`/no/${rev.id}`,{
       nah: newNum
     })
     .then(this.getReviews())
     .catch((err) => console.log('error adding no'))
   }
-
-  getReviews(){
-    console.log('we got reviews')
-    axios.get('/api1/reviews')
+  
+  getReviews(num){
+    if(num){
+      axios.get(`/reviews?data=${num}`)
     .then((response) => this.setState({
       reviews: response.data
     }))
+    .catch((err) => console.log(err))
+    }
+    else {
+      var rando = Math.floor(Math.random() * 10) + 1
+      axios.get(`/reviews?data=${rando}`)
+      .then((response) => this.setState({
+        reviews: response.data
+      }))
+      .catch((err) => console.log(err))
+    }
   }
 
   handleSubmit(e){
@@ -913,14 +865,17 @@ class App extends React.Component {
     }
 
     else if (this.state.rev_desc.length < 10){
+      console.log(this.state.reviews[0].item_id)
       this.setState({
         error: "Your review must be at least 10 characters in length."
       })
       e.preventDefault()
     }
-
+    
     else {
-      axios.post('/api1/writereview',{
+      var id = this.state.reviews[0].item_id
+
+      axios.post('/writereview',{
         date: this.state.date,
         rating: this.state.rating,
         ps: this.state.ps,
@@ -934,13 +889,14 @@ class App extends React.Component {
         gender: this.state.gender,
         age: this.state.age,
         yes: "0",
-        nah: "0"
+        nah: "0",
+        item_id: id
       })
       .then(this.setState({
         clicked:!this.state.clicked,
         num: this.state.num + 1
         // reviews: [...this.state.reviews, 'new value']
-      }), this.getReviews())
+      }), this.getReviews(id))
       .catch((err) => console.log(err))
     }
 
@@ -953,6 +909,15 @@ class App extends React.Component {
     this.setState({
       reccomend: e.target.value
     })
+  }
+  handle(rev){
+    for(var i = 0 ; i < this.state.reviews.length; i++){
+      if(this.state.reviews[i].id === rev.id){
+        this.setState({
+          reviews: this.state.reviews.push
+        })
+      }
+    }
   }
   handleRadio1(e) {
     this.setState({
@@ -978,24 +943,27 @@ class App extends React.Component {
     this.setState({rating: nextValue});
   }
   componentDidMount(){
+  
     this.getReviews()
   }
 
   render() {
     const { rating } = this.state;
-    const numRevs = this.state.num
+    // const numRevs = this.state.num
     const revs = this.state.reviews;
     const length = this.state.reviews.length;
-    const final = revs.slice(Math.max(length - numRevs, 1))
-    console.log(final,'final')
-    console.log(revs)
+    // const shuffled = revs.sort(() => 0.5 - Math.random());
+    // let final = revs.slice(0, numRevs);
+    const final = this.state.reviews
+    const total = this.state.reviews.length
+    console.log(final)
     if(this.state.clicked){
 
      return (
       <Div>
         <She> ★ ★ ★ ★ ★<Lasr> 5.0 / 5.0</Lasr>    </She>
               <Br />
-              <He>{this.state.num+ "  "} Reviews</He>
+              <He>{total+ "  "} Reviews</He>
             <Wrap style={{paddingLeft:180}}>
               <Hit>
                 <b>
@@ -1594,7 +1562,7 @@ class App extends React.Component {
           <Div>
               <She> ★ ★ ★ ★ ★<Lasr> 5.0 / 5.0</Lasr>    </She>
               <Br />
-              <He>{this.state.num+ "  "} Reviews</He>
+              <He>{total+ "  "} Reviews</He>
             <Wrap style={{paddingLeft:180}}>
               <Hit>
                 <b>
@@ -1697,7 +1665,7 @@ class App extends React.Component {
               <Br />
               <ul>
                 <Help>
-                  Was this review helpful? <A onClick={() => this.handleYes(rev)}>Yes ({rev.yes})</A>&ensp;&ensp;<A onClick={() => this.handleNo(rev)}>No ({rev.nah})</A>
+                  Was this review helpful? <A onClick={() => this.handle(rev)}>Yes ({rev.yes})</A>&ensp;&ensp;<A onClick={() => this.handleNo(rev)}>No ({rev.nah})</A>
                   &nbsp;&nbsp;&nbsp; <A >Flag as Inappropriate</A>
                 </Help>
 

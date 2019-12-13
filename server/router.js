@@ -4,6 +4,7 @@ const controllers = require('./controllers.js');
 
 router.route('/reviews')
   .get(controllers.get)
+  
 router.route('/writereview')
   .post(controllers.post)
 

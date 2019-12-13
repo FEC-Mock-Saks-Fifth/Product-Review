@@ -13,6 +13,7 @@ const gender = ["Male", "Female"]
 const age = ["Under 18", "18 to 24", "25 to 34", "35 to 44", "45 to 54", "55 to 64", "Over 65"]
 const date = ["January 25, 2016", "February 13, 2013", "August 8, 2019", "April 4, 2019", "December 2, 2019", "March 9, 2018", "October 18, 2017"]
 const stars = ["1","2","3","4","5"]
+var nums = ["1","2","3","4","5","6","7","8","9","10","1","2","3","4","5","6","7","8","9","10","1","2","3","4","5","6","7","8","9","10"]
 const createProduct = () => {
   let review = {};
   review.title = `${adjectives[Math.floor(Math.random() * Math.floor(adjectives.length))]} ${brand[Math.floor(Math.random(brand.length) * Math.floor(6))]} ${noun[Math.floor(Math.random() * Math.floor(noun.length))]}`;
@@ -31,6 +32,7 @@ const createProduct = () => {
   review.styles = `${styles[Math.floor(Math.random() * Math.floor(styles.length))]}`
   review.yes = `${stars[Math.floor(Math.random() * Math.floor(stars.length))]}`
   review.nah = `${stars[Math.floor(Math.random() * Math.floor(stars.length))]}`
+  review.item_id = `${nums[Math.floor(Math.random() * Math.floor(nums.length))]}`
   return review
 };
 
@@ -47,7 +49,7 @@ const createProducts = () => {
 const insertMockData = function() {
   var r = createProducts()
   for(var i = 0; i < r.length; i++){
-    db.query(`INSERT INTO revs (dateAdded, rating, ps, width, reccomend, fit, revTitle, rev_desc, country, city, states, gender, age, yes, nah) VALUES ("${r[i].date}","${r[i].stars}","${r[i].styles}","${r[i].width}","${r[i].recommend}","${r[i].fit}","${r[i].title}","${r[i].desc}","${r[i].country}","${r[i].city}","${r[i].state}","${r[i].gender}","${r[i].age}","${r[i].yes}","${r[i].nah}");`)
+    db.query(`INSERT INTO revs (dateAdded, rating, ps, width, reccomend, fit, revTitle, rev_desc, country, city, states, gender, age, yes, nah, item_id) VALUES ("${r[i].date}","${r[i].stars}","${r[i].styles}","${r[i].width}","${r[i].recommend}","${r[i].fit}","${r[i].title}","${r[i].desc}","${r[i].country}","${r[i].city}","${r[i].state}","${r[i].gender}","${r[i].age}","${r[i].yes}","${r[i].nah}", "${r[i].item_id}");`)
   }
 };
 insertMockData()
