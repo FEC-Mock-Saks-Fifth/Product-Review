@@ -835,7 +835,6 @@ class App extends React.Component {
   }
   
   getReviews(num){
-    console.log("GGGG")
     if(num){
       axios.get(`/reviews?data=${num}`)
     .then((response) => this.setState({
@@ -946,12 +945,18 @@ class App extends React.Component {
     // let final = revs.slice(0, numRevs);
     const final = this.state.reviews
     const total = this.state.reviews.length
-    console.log(final)
+    var sum = 0
+    for(var i = 0; i < total; i++){
+      sum += Number(final[i].rating)
+    }
+    const avg = sum / total;
+    const num = avg.toFixed(1)
+
     if(this.state.clicked){
 
      return (
       <Div>
-        <She> ★ ★ ★ ★ ★<Lasr> 5.0 / 5.0</Lasr>    </She>
+        <She> ★ ★ ★ ★ ★<Lasr> {num} / 5.0</Lasr>    </She>
               <Br />
               <He>{total+ "  "} Reviews</He>
             <Wrap style={{paddingLeft:180}}>
@@ -1553,7 +1558,8 @@ class App extends React.Component {
         return (
             
           <Div>
-              <She> ★ ★ ★ ★ ★<Lasr> 5.0 / 5.0</Lasr>    </She>
+              <She> <StarRating rating={avg} starDimension='15px' starSpacing='0px' starRatedColor='#323E4D'/>
+                <Lasr> {num} / 5.0</Lasr>    </She>
               <Br />
               <He>{total+ "  "} Reviews</He>
             <Wrap style={{paddingLeft:180}}>
