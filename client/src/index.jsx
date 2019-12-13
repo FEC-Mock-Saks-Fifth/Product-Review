@@ -796,9 +796,7 @@ class App extends React.Component {
       age: "",
       width: "",
       error: "We value your input and invite you to write a review on this product.",
-      reviews: [],
-      star: "⭐️",
-      num: 5
+      reviews: []
 
     }
   this.handleFlag = this.handleFlag.bind(this)
@@ -811,7 +809,7 @@ class App extends React.Component {
   this.handleRadio = this.handleRadio.bind(this)
   this.handleChange = this.handleChange.bind(this)
   this.handleClick = this.handleClick.bind(this)
-  this.handle = this.handle.bind(this)
+  
   }
   handleFlag(){
     this.setState({
@@ -824,7 +822,7 @@ class App extends React.Component {
     axios.put(`/yes/${rev.id}`,{
       yes: newNum
     })
-    .then(this.getReviews())
+    .then(this.getReviews(rev.item_id))
     .catch((err) => console.log('error adding yes'))
   }
   handleNo(rev){
@@ -833,11 +831,12 @@ class App extends React.Component {
     axios.put(`/no/${rev.id}`,{
       nah: newNum
     })
-    .then(this.getReviews())
+    .then(this.getReviews(rev.item_id))
     .catch((err) => console.log('error adding no'))
   }
   
   getReviews(num){
+    console.log("GGGG")
     if(num){
       axios.get(`/reviews?data=${num}`)
     .then((response) => this.setState({
@@ -910,15 +909,7 @@ class App extends React.Component {
       reccomend: e.target.value
     })
   }
-  handle(rev){
-    for(var i = 0 ; i < this.state.reviews.length; i++){
-      if(this.state.reviews[i].id === rev.id){
-        this.setState({
-          reviews: this.state.reviews.push
-        })
-      }
-    }
-  }
+
   handleRadio1(e) {
     this.setState({
       width: e.target.value
@@ -1665,7 +1656,7 @@ class App extends React.Component {
               <Br />
               <ul>
                 <Help>
-                  Was this review helpful? <A onClick={() => this.handle(rev)}>Yes ({rev.yes})</A>&ensp;&ensp;<A onClick={() => this.handleNo(rev)}>No ({rev.nah})</A>
+                  Was this review helpful? <A onClick={() => this.handleYes(rev)}>Yes ({rev.yes})</A>&ensp;&ensp;<A onClick={() => this.handleNo(rev)}>No ({rev.nah})</A>
                   &nbsp;&nbsp;&nbsp; <A >Flag as Inappropriate</A>
                 </Help>
 

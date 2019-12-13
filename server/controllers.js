@@ -17,7 +17,7 @@ const controllers = {
         res.status(405).send(err)
       } else {
         console.log(req.query.data)
-        res.status(200).send(result.sort(() => 0.5 - Math.random()))
+        res.status(200).send(result)
       }
     })
   },
