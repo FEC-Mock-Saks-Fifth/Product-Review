@@ -12,6 +12,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import axios from "axios"
 import moment from 'moment'
 import StarRating from 'react-star-ratings'
+import Fit from "./Fit.jsx"
 
 const theme = createMuiTheme({
   typography: {
@@ -798,6 +799,7 @@ class App extends React.Component {
       reviews: []
 
     }
+  this.sorter = this.sorter.bind(this)
   this.handleFlag = this.handleFlag.bind(this)
   this.handleNo = this.handleNo.bind(this)
   this.handleYes = this.handleYes.bind(this)
@@ -835,6 +837,7 @@ class App extends React.Component {
   }
   
   getReviews(num){
+    console.log('gotrevs')
     if(num){
       axios.get(`/reviews?data=${num}`)
     .then((response) => this.setState({
@@ -931,8 +934,37 @@ class App extends React.Component {
   onStarClick(nextValue, prevValue, name) {
     this.setState({rating: nextValue});
   }
+  sorter(event){
+    console.log(event.target.value)
+    const final = this.state.reviews
+    const high = final.sort((a,b) => b.rating - a.rating);
+    const low = final.sort((b,a) => b.rating - a.rating);
+    const most = final.sort((b,a) => a.yes - b.yes);
+    const recent = final.sort((a,b) => b.dateAdded.slice(b.dateAdded.length - 5) - a.dateAdded.slice(a.dateAdded.length -5));
+    if(event.target.value === "most"){
+      this.setState({
+        reviews:most
+      })
+    }
+    else if(event.target.value === "lowest"){
+     this.setState({
+        reviews:low
+      })
+    }
+    else if(event.target.value === "highest"){
+       this.setState({
+         reviews:high
+        })
+
+      }
+    else if (event.target.value === "recent"){
+      this.setState({
+        reviews:recent
+      })
+    }    
+
+  }
   componentDidMount(){
-  
     this.getReviews()
   }
 
@@ -944,6 +976,7 @@ class App extends React.Component {
     // const shuffled = revs.sort(() => 0.5 - Math.random());
     // let final = revs.slice(0, numRevs);
     const final = this.state.reviews
+    // console.log(final)
     const total = this.state.reviews.length
     var sum = 0
     for(var i = 0; i < total; i++){
@@ -951,12 +984,14 @@ class App extends React.Component {
     }
     const avg = sum / total;
     const num = avg.toFixed(1)
-
+    // const sliced = final[0].dateAdded.slice(dateAdded.length -5)
+    // console.log(low)
+    
     if(this.state.clicked){
 
      return (
       <Div>
-        <She> ★ ★ ★ ★ ★<Lasr> {num} / 5.0</Lasr>    </She>
+    <She> <StarRating rating={avg} starDimension='15px' starSpacing='0px' starRatedColor='#323E4D'/> <Lasr> {num} / 5.0</Lasr>    </She>
               <Br />
               <He>{total+ "  "} Reviews</He>
             <Wrap style={{paddingLeft:180}}>
@@ -991,11 +1026,11 @@ class App extends React.Component {
            </Take>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-           <Relect>
-              <Woption> &nbsp;&nbsp; Sort by Most Helpful</Woption>
-              <Woption> &nbsp;&nbsp; Sort by Most Recent Review </Woption>
-              <Woption> &nbsp;&nbsp; Sort Highest to Lowest</Woption>
-              <Woption> &nbsp;&nbsp; Sort Lowest to Highest</Woption>
+           <Relect name="wtvr" onChange={this.sorter}>
+              <Woption value="wtvr"> &nbsp;&nbsp; Sort by Most Helpful</Woption>
+              <Woption value="wtvr"> &nbsp;&nbsp; Sort by Most Recent Review </Woption>
+              <Woption value="wtvr"> &nbsp;&nbsp; Sort Highest to Lowest</Woption>
+              <Woption value="wtvr"> &nbsp;&nbsp; Sort Lowest to Highest</Woption>
            </Relect>
 </Lol>
 
@@ -1036,19 +1071,7 @@ class App extends React.Component {
               <br />
               <Br />
               <Br />
-              <Fap>
-              <Hit>
-                <b>
-                Fit
-                </b>
-                </Hit>
-            <Kiv>
-              <Dot></Dot>
-            </Kiv>
-            <Hit>Too Small &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Too Big</Hit>
-            <br />
-            <Br />
-          </Fap>
+              <Fit fit={rev.fit}></Fit>
             <Break2></Break2>
             <br />
             <br />
@@ -1594,11 +1617,11 @@ class App extends React.Component {
            </Take>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-           <Relect>
-              <Woption> &nbsp;&nbsp; Sort by Most Helpful</Woption>
-              <Woption> &nbsp;&nbsp; Sort by Most Recent Review </Woption>
-              <Woption> &nbsp;&nbsp; Sort Highest to Lowest</Woption>
-              <Woption> &nbsp;&nbsp; Sort Lowest to Highest</Woption>
+           <Relect name="wtvr" onChange={this.sorter}>
+              <Woption value="most"> &nbsp;&nbsp; Sort by Most Helpful</Woption>
+              <Woption value="recent"> &nbsp;&nbsp; Sort by Most Recent Review </Woption>
+              <Woption value="highest"> &nbsp;&nbsp; Sort Highest to Lowest</Woption>
+              <Woption value="lowest"> &nbsp;&nbsp; Sort Lowest to Highest</Woption>
            </Relect>
 </Lol>
 
@@ -1639,19 +1662,7 @@ class App extends React.Component {
               <br />
               <Br />
               <Br />
-              <Fap>
-              <Hit>
-                <b>
-                Fit
-                </b>
-                </Hit>
-            <Kiv>
-              <Dot></Dot>
-            </Kiv>
-            <Hit>Too Small &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Too Big</Hit>
-            <br />
-            <Br />
-          </Fap>
+              <Fit fit={rev.fit}></Fit>
             <Break2></Break2>
             <br />
             <br />
