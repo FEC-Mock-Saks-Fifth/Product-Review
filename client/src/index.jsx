@@ -596,8 +596,7 @@ const Lol = styled.div`
     background-image: url("https://content.hbc.com/content/frontend/5-26-75/images/2846d9d7bac20583cad4e305608cb88f.png");
 `
 const Relect = styled.select`
-background-image: url('https://content.hbc.com/content/frontend/5-26-75/images/2846d9d7bac20583cad4e305608cb88f.png'),
-linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+background-image: url("https://library.kissclipart.com/20180907/qrw/kissclipart-svg-triangle-down-clipart-computer-icons-arrow-3459dc7c71709fa8.png")
     -webkit-appearance:none;
     border-radius: 0;
     -webkit-border-radius: 0;
@@ -614,11 +613,7 @@ border-bottom-left-radius:0px;
 border-bottom-right-radius:0px;
 border-bottom-style:solid;
 border-bottom-width:1px;
-border-image-outset:0px;
-border-image-repeat:stretch;
-border-image-slice:100%;
-border-image-source:none;
-border-image-width:1;
+
 border-left-color:rgb(204, 204, 204);
 border-left-style:solid;
 border-left-width:1px;
@@ -796,7 +791,8 @@ class App extends React.Component {
       age: "",
       width: "",
       error: "We value your input and invite you to write a review on this product.",
-      reviews: []
+      reviews: [],
+      currentSort: 'most'
 
     }
   this.sorter = this.sorter.bind(this)
@@ -931,44 +927,60 @@ class App extends React.Component {
       clicked: !prevState.clicked
     }));
   }
+
   onStarClick(nextValue, prevValue, name) {
     this.setState({rating: nextValue});
   }
+
   sorter(event){
-    console.log(event.target.value)
     const final = this.state.reviews
-    const high = final.sort((a,b) => b.rating - a.rating);
-    const low = final.sort((b,a) => b.rating - a.rating);
-    const most = final.sort((b,a) => a.yes - b.yes);
-    const recent = final.sort((a,b) => b.dateAdded.slice(b.dateAdded.length - 5) - a.dateAdded.slice(a.dateAdded.length -5));
-    if(event.target.value === "most"){
+    if (event || this.state.currentSort.length) {
+      this.setState({
+        currentSort: event.target.value
+      }, () => {
+        if(this.state.currentSort === "most"){
+          const most = final.sort((b,a) => a.yes - b.yes);
+          this.setState({
+            reviews:most,
+            currentSort: 'most'
+          })
+        }
+        else if(this.state.currentSort === "lowest"){
+          const low = final.sort((b,a) => b.rating - a.rating);
+         this.setState({
+            reviews:low,
+            currentSort: 'lowest'
+          })
+        }
+        else if(this.state.currentSort === "highest"){
+          const high = final.sort((a,b) => b.rating - a.rating);
+           this.setState({
+             reviews:high,
+             currentSort: 'highest'
+            })
+    
+          }
+        else if (this.state.currentSort === "recent"){
+          const recent = final.sort((a,b) => b.dateAdded.slice(b.dateAdded.length - 5) - a.dateAdded.slice(a.dateAdded.length -5));
+          this.setState({
+            reviews:recent,
+            currentSort: 'recent'
+          })
+        }    
+      })
+    } else {
+      const most = final.sort((b,a) => a.yes - b.yes);
       this.setState({
         reviews:most
       })
     }
-    else if(event.target.value === "lowest"){
-     this.setState({
-        reviews:low
-      })
-    }
-    else if(event.target.value === "highest"){
-       this.setState({
-         reviews:high
-        })
-
-      }
-    else if (event.target.value === "recent"){
-      this.setState({
-        reviews:recent
-      })
-    }    
-
   }
   componentDidMount(){
     this.getReviews()
   }
 
   render() {
+
     const { rating } = this.state;
     // const numRevs = this.state.num
     const revs = this.state.reviews;
@@ -977,10 +989,15 @@ class App extends React.Component {
     // let final = revs.slice(0, numRevs);
     const final = this.state.reviews
     // console.log(final)
+    // const high = final.sort((a,b) => b.rating - a.rating);
+
     const total = this.state.reviews.length
     var sum = 0
     for(var i = 0; i < total; i++){
       sum += Number(final[i].rating)
+    }
+    if(this.state.currentSort === "most"){
+      const most = final.sort((b,a) => a.yes - b.yes); 
     }
     const avg = sum / total;
     const num = avg.toFixed(1)
