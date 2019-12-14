@@ -14,8 +14,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 
 app.use(router)
+
 router.route('/', router)
 
-app.use(express.static("/Users/ariakesh/Product-Review/client/dist"))
+app.use(express.static(path.resolve(__dirname, "../client/dist")))
 
 module.exports = app
