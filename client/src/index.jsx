@@ -95,10 +95,12 @@ const Div = styled.div`
 `
 
 const Span = styled.span`
+<<<<<<< HEAD
   // position: absolute;
+=======
+>>>>>>> dbd04d76cff0beff38366884087030367716b5dd
   display: inline-block;
-  top: 110px;
-  right: 430px;
+  display:right;
   box-sizing:content-box;
   cursor:pointer;
 
@@ -212,8 +214,13 @@ width:141px;
    background-color: rgba(0,0,0,0);
    display:flex;
    position: absolute;
+<<<<<<< HEAD
    top: 1750px;
    right: 0px;
+=======
+   top: 1950px;
+   right:0px;
+>>>>>>> dbd04d76cff0beff38366884087030367716b5dd
    justify-content: center;
    align-items: center;
 
@@ -459,18 +466,7 @@ font-weight:500;
 height:17px;
 width:100px;
 `
-const Fap = styled.div`
-color:rgb(0, 0, 0)
-font-family:"Gotham Narrow SSm 4r", "Gotham Narrow SSm 5r", sans-serif;
-font-size:12px;
-font-weight:500;
-overflow-x:auto;
-overflow-y:auto;
-position:relative;
-text-rendering:optimizelegibility;
-text-size-adjust:100%;
-visibility:visible;
-`
+
 const Hit = styled.div`
 box-sizing:border-box;
 color:rgb(119, 119, 119);
@@ -520,7 +516,7 @@ font-size:12px;
 font-weight:400;
 height:20px;
 line-height:18px;
-margin-right:-275px
+margin-right:-320px
 text-align:right;
 text-decoration-color:rgb(119, 119, 119);
 text-decoration-line:none;
@@ -530,7 +526,35 @@ text-size-adjust:100%;
 transition-duration:0.2s;
 transition-property:color, opacity;
 transition-timing-function:ease;
-width:17px;
+width:57px;
+z-index:auto;
+-webkit-font-smoothing:antialiased;
+-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+`
+const Arrow = styled.a`
+background-image:url("https://image.flaticon.com/icons/png/512/60/60995.png");
+
+box-sizing:border-box;
+color:rgb(119, 119, 119);
+cursor:pointer;
+display:block;
+float:right;
+font-family:"Gotham Narrow SSm 4r", "Gotham Narrow SSm 5r", sans-serif;
+font-size:12px;
+font-weight:400;
+height:20px;
+line-height:18px;
+margin-right:-520px
+text-align:right;
+text-decoration-color:rgb(119, 119, 119);
+text-decoration-line:none;
+text-decoration-style:solid;
+text-rendering:optimizelegibility;
+text-size-adjust:100%;
+transition-duration:0.2s;
+transition-property:color, opacity;
+transition-timing-function:ease;
+width:57px;
 z-index:auto;
 -webkit-font-smoothing:antialiased;
 -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
@@ -602,6 +626,7 @@ const Lol = styled.div`
 const Relect = styled.select`
 background-image: url("https://library.kissclipart.com/20180907/qrw/kissclipart-svg-triangle-down-clipart-computer-icons-arrow-3459dc7c71709fa8.png")
     -webkit-appearance:none;
+    background-position: 100%;
     border-radius: 0;
     -webkit-border-radius: 0;
     background: transparent;
@@ -773,9 +798,7 @@ width:19px;
 -webkit-font-smoothing:antialiased;
 -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
 `
-const M = styled.b`
-margin:0px 0px 10000px 0px;
-`
+
 class App extends React.Component {
   constructor(props){
     super(props)
