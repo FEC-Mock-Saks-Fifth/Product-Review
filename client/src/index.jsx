@@ -95,7 +95,7 @@ const Div = styled.div`
 `
 
 const Span = styled.span`
-  position: absolute;
+  // position: absolute;
   display: inline-block;
   top: 110px;
   right: 430px;
@@ -211,8 +211,12 @@ width:141px;
    height:100%;
    background-color: rgba(0,0,0,0);
    display:flex;
+   position: absolute;
+   top: 1750px;
+   right: 0px;
    justify-content: center;
    align-items: center;
+
  `
   const ModalContent = styled.div`
     font-family: Source Sans Pro, sans-serif;
@@ -627,7 +631,7 @@ border-top-style:solid;
 border-top-width:1px;
 box-sizing:border-box;
 color:rgb(0, 0, 0);
-position: relative; 
+position: relative;
 `
 const Woption = styled.option`
 box-sizing:content-box;
@@ -707,7 +711,7 @@ text-align:left;
 text-rendering:optimizelegibility;
 text-size-adjust:300%;
 visibility:visible;
-width:1087px;
+width:1050px;
 -webkit-font-smoothing:antialiased;
 -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
 `
@@ -806,7 +810,7 @@ class App extends React.Component {
   this.handleRadio = this.handleRadio.bind(this)
   this.handleChange = this.handleChange.bind(this)
   this.handleClick = this.handleClick.bind(this)
-  
+
   }
   handleFlag(){
     this.setState({
@@ -831,7 +835,7 @@ class App extends React.Component {
     .then(this.getReviews(rev.item_id))
     .catch((err) => console.log('error adding no'))
   }
-  
+
   getReviews(num){
     console.log('gotrevs')
     if(num){
@@ -839,6 +843,7 @@ class App extends React.Component {
     .then((response) => this.setState({
       reviews: response.data
     }))
+    
     .catch((err) => console.log(err))
     }
     else {
@@ -861,13 +866,13 @@ class App extends React.Component {
     }
 
     else if (this.state.rev_desc.length < 10){
-     
+
       this.setState({
         error: "Your review must be at least 10 characters in length."
       })
       e.preventDefault()
     }
-    
+
     else {
       var id = this.state.reviews[0].item_id
 
@@ -958,7 +963,7 @@ class App extends React.Component {
              reviews:high,
              currentSort: 'highest'
             })
-    
+
           }
         else if (this.state.currentSort === "recent"){
           const recent = final.sort((a,b) => b.dateAdded.slice(b.dateAdded.length - 5) - a.dateAdded.slice(a.dateAdded.length -5));
@@ -966,7 +971,7 @@ class App extends React.Component {
             reviews:recent,
             currentSort: 'recent'
           })
-        }    
+        }
       })
     } else {
       const most = final.sort((b,a) => a.yes - b.yes);
@@ -997,13 +1002,13 @@ class App extends React.Component {
       sum += Number(final[i].rating)
     }
     if(this.state.currentSort === "most"){
-      const most = final.sort((b,a) => a.yes - b.yes); 
+      const most = final.sort((b,a) => a.yes - b.yes);
     }
     const avg = sum / total;
     const num = avg.toFixed(1)
     // const sliced = final[0].dateAdded.slice(dateAdded.length -5)
     // console.log(low)
-    
+
     if(this.state.clicked){
 
      return (
@@ -1023,7 +1028,7 @@ class App extends React.Component {
             <Hit>Too Small &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Too Big</Hit>
             <br />
             </Wrap>
-          
+
              <Button onClick={this.handleClick}></Button>
            <br />
            <br />
@@ -1059,17 +1064,17 @@ class App extends React.Component {
            <Stars>
            <br /><br />
              <br /><br />
-             
+
              <StarRating rating={Number(rev.rating)} starDimension='15px' starSpacing='0px' starRatedColor='#323E4D'/>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {rev.revTitle } &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <br />
-     
+
            </Stars>
               <br />
               <Br ></Br>
               <br /> <br />
               <Dates>{rev.dateAdded}</Dates>
               <br />
-             
+
              <Dates>{rev.city + ", " + rev.states + ", " + rev.country}</Dates>
               <br />
            <Dates>Gender: {rev.gender}</Dates>
@@ -1126,7 +1131,7 @@ class App extends React.Component {
           </Value>
           <Br />
           <Br />
-          
+
     <div style={{display:"flex",alignItems:"center"}}>
         <div> My Overall Rating:</div>
           <StarRatingComponent
@@ -1137,7 +1142,7 @@ class App extends React.Component {
           value={rating}
           onStarClick={this.onStarClick.bind(this)} />
     </div>
-          
+
         <br/>
         <br />
           My Personal Style:<br/>
@@ -1155,7 +1160,7 @@ class App extends React.Component {
           <ThemeProvider style={{paddingTop:100}} theme={theme}>
           <RadioGroup aria-label="start" name="start" value={this.state.width} onChange={this.handleRadio1} row>
           <Br/>
-        
+
          <b style={{paddingTop:6.6}}> My Typical Width:</b>
           <FormControlLabel
           value="Narrow"
@@ -1197,7 +1202,7 @@ class App extends React.Component {
            <Dr/>
 
            <RadioGroup  aria-label="end" name="end" value={this.state.fit} onChange={this.handleRadio2} row>
-          
+
           <b style={{paddingTop:6}}>Fit:</b> &ensp;
           <FormControlLabel
 
@@ -1596,7 +1601,7 @@ class App extends React.Component {
 
     if(revs[0]){
         return (
-            
+
           <Div>
               <She> <StarRating rating={avg} starDimension='15px' starSpacing='0px' starRatedColor='#323E4D'/>
                 <Lasr> {num} / 5.0</Lasr>    </She>
@@ -1614,7 +1619,7 @@ class App extends React.Component {
             <Hit>Too Small &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Too Big</Hit>
             <br />
             </Wrap>
-          
+
              <Button onClick={this.handleClick}></Button>
            <br />
            <br />
@@ -1650,17 +1655,17 @@ class App extends React.Component {
            <Stars>
            <br /><br />
              <br /><br />
-             
+
              <StarRating rating={Number(rev.rating)} starDimension='15px' starSpacing='0px' starRatedColor='#323E4D'/>      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {rev.revTitle } &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <br />
-     
+
            </Stars>
               <br />
               <Br ></Br>
               <br /> <br />
               <Dates>{rev.dateAdded}</Dates>
               <br />
-             
+
              <Dates>{rev.city + ", " + rev.states + ", " + rev.country}</Dates>
               <br />
            <Dates>Gender: {rev.gender}</Dates>

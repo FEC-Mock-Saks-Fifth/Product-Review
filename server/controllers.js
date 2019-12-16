@@ -16,7 +16,7 @@ const controllers = {
         console.log('error getting reviews figure it out')
         res.status(405).send(err)
       } else {
-        console.log(req.query.data)
+        console.log(req.query)
         res.status(200).send(result)
       }
     })

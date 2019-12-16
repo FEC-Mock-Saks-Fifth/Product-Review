@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS reviews
+DROP DATABASE IF EXISTS reviews;
 
-CREATE DATABASE reviews
+CREATE DATABASE reviews;
 
-USE reviews
+USE reviews;
 
 CREATE TABLE revs (
   id int auto_increment PRIMARY KEY,
@@ -22,4 +22,6 @@ CREATE TABLE revs (
   yes varchar(300),
   nah varchar(300),
   item_id varchar(300)
-)
+);
+
+/* run 'mysql -u root < schema.sql' in terminal from db/
